@@ -14,11 +14,18 @@ export function typescript(): readonly (
   return [
     typescriptConfigFile,
 
-    mergeContent(gitIgnoreFile, [typescriptConfigFile.path]),
+    mergeContent(gitIgnoreFile, [
+      typescriptConfigFile.path,
+      `tsconfig.tsbuildinfo`,
+    ]),
+
     mergeContent(prettierIgnoreFile, [typescriptConfigFile.path]),
 
     mergeContent(vscodeSettingsFile, {
-      'files.exclude': {[typescriptConfigFile.path]: true},
+      'files.exclude': {
+        [typescriptConfigFile.path]: true,
+        'tsconfig.tsbuildinfo': true,
+      },
       'typescript.tsdk': `node_modules/typescript/lib`,
     }),
   ];
