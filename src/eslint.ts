@@ -4,7 +4,7 @@ import {gitIgnoreFile} from './git';
 import {prettierIgnoreFile} from './prettier';
 import {vscodeExtensionsFile, vscodeSettingsFile} from './vscode';
 
-export const eslintConfigFile = defineJsonFile(`.eslintrc.json`, {});
+export const eslintConfigFile = defineJsonFile(`.eslintrc.json`, {root: true});
 export const eslintIgnoreFile = defineTextFile(`.eslintignore`, []);
 
 /** https://eslint.org */
