@@ -25,11 +25,11 @@ export function vscode(
 
     mergeContent(gitIgnoreFile, [
       vscodeExtensionsFile.path,
-      vscodeExtensionsFile.path,
+      vscodeSettingsFile.path,
     ]),
 
     mergeContent(prettierIgnoreFile, [
-      vscodeSettingsFile.path,
+      vscodeExtensionsFile.path,
       vscodeSettingsFile.path,
     ]),
 
