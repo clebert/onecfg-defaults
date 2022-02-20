@@ -13,7 +13,7 @@ export function swc(): readonly (FileDefinition<any> | FileChange<any>)[] {
     mergeContent(gitIgnoreFile, [swcConfigFile.path]),
 
     mergeContent(vscodeSettingsFile, {
-      'files.exclude': {[swcConfigFile.path]: true},
+      'files.exclude': {[swcConfigFile.path]: true, '.swc': true},
     }),
   ];
 }

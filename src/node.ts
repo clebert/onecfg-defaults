@@ -18,8 +18,8 @@ export function node(
   return [
     nodeVersionFile,
 
-    mergeContent(gitIgnoreFile, [nodeVersionFile.path]),
     mergeContent(nodeVersionFile, [version], {priority: -1}),
+    mergeContent(gitIgnoreFile, [nodeVersionFile.path]),
 
     mergeContent(vscodeSettingsFile, {
       'files.exclude': {[nodeVersionFile.path]: true},

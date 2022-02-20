@@ -23,17 +23,11 @@ export function vscode(
     vscodeExtensionsFile,
     vscodeSettingsFile,
 
-    mergeContent(gitIgnoreFile, [
-      vscodeExtensionsFile.path,
-      vscodeSettingsFile.path,
-    ]),
-
-    mergeContent(prettierIgnoreFile, [
-      vscodeExtensionsFile.path,
-      vscodeSettingsFile.path,
-    ]),
-
-    mergeContent(vscodeSettingsFile, {'files.exclude': {'**/.DS_Store': true}}),
+    mergeContent(
+      vscodeSettingsFile,
+      {'files.exclude': {'**/.DS_Store': true, '.vscode': true}},
+      {priority: -1},
+    ),
 
     ...(showFilesInEditor
       ? [
@@ -44,5 +38,15 @@ export function vscode(
           ),
         ]
       : []),
+
+    mergeContent(gitIgnoreFile, [
+      vscodeExtensionsFile.path,
+      vscodeSettingsFile.path,
+    ]),
+
+    mergeContent(prettierIgnoreFile, [
+      vscodeExtensionsFile.path,
+      vscodeSettingsFile.path,
+    ]),
   ];
 }

@@ -12,12 +12,12 @@ export function prettier(): readonly (FileDefinition<any> | FileChange<any>)[] {
     prettierConfigFile,
     prettierIgnoreFile,
 
+    mergeContent(prettierIgnoreFile, [prettierConfigFile.path]),
+
     mergeContent(gitIgnoreFile, [
       prettierConfigFile.path,
       prettierIgnoreFile.path,
     ]),
-
-    mergeContent(prettierIgnoreFile, [prettierConfigFile.path]),
 
     mergeContent(vscodeExtensionsFile, {
       recommendations: [`esbenp.prettier-vscode`],
@@ -30,7 +30,6 @@ export function prettier(): readonly (FileDefinition<any> | FileChange<any>)[] {
         `javascript`,
         `javascriptreact`,
         `json`,
-        `svelte`,
         `typescript`,
         `typescriptreact`,
         `yaml`,
