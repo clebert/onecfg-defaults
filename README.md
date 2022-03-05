@@ -1,10 +1,1 @@
-# @onecfg/defaults
-
-Sensible defaults for generating config files with
-[onecfg](https://github.com/clebert/onecfg).
-
-## Installation
-
-```
-npm install @onecfg/defaults
-```
+# This package is deprecated and replaced by [@onecfg/standard](https://github.com/clebert/onecfg-standard).
